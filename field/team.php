@@ -53,7 +53,7 @@ eof;
 
     protected function listTeamMembers()
     {
-        $teamUsersHTML = '';
+        $teamUsersHTML = [];
         foreach ($this->getTeamUsers() as $teamUser) {
             $toggle = $this->toggleIcons(['teamLeaderID'=>(int)$this->element['leader'], 'teamMemberID'=>$teamUser->userID, 'groupID'=>(string)$this->element['groupid']], $teamUser->on);
             if ($this->element['admin']) {
