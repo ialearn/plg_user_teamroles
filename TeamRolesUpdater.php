@@ -111,7 +111,7 @@ class TeamRolesUpdater
     {
         foreach (TeamRolesUserInfo::usersInGroup($group) as $user) {
             if (in_array($this->userInfo->configAccess, JAccess::getAuthorisedViewLevels($user))) {
-                $teamLeaderInfo = new TeamRolesUserInfo($user);
+                $teamLeaderInfo = new TeamRolesUserInfo([], $user, JFactory::getUser($user)->get('username'));
                 $toggle = $teamLeaderInfo->loadTeamRoleToggleFromProfile($this->userInfo->userID);
                 if ($toggle) {
                    self::joomdleAddParentRole($this->userInfo->username, JFactory::getUser($user)->get('username'));
