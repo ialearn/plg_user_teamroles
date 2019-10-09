@@ -32,6 +32,8 @@ class TeamRolesUserInfo
 
         $this->userID = (int)$userID;
         $this->username = $username;
+         if (!$params)
+            return;
 
         $this->configGroups = $this->subGroupsOfConfigTopGroup($params->get('topgroup'));
         $this->configAccess = $params->get('parent');
